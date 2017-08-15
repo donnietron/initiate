@@ -58,11 +58,13 @@ class CreatureList extends React.Component {
     const creatures = [];
     if(this.props.creatureIds.length > 0) {
       _.forEach(this.props.creatureIds, (creatureId) => {
-        const creature   = this.props.creatures[creatureId];
+        const creature = this.props.creatures[creatureId];
+        const firstCreature = (creatureId === this.props.creatureIds[0]) ? true : false;
         const counters = _.pick(this.props.counters, creature.counterIds);
         creatures.push(
           <Creature
             key={creature.id}
+            first={firstCreature}
             creature={creature}
             counters={counters}
             onCounterSubmit={this.handleCounterSubmit}

@@ -39,7 +39,8 @@ export class Creature extends React.Component {
         );
       });
     };
-    const className = (!this.state.editing) ? "creature" : "creature editing";
+    let className = (!this.state.editing) ? "creature" : "creature editing";
+    if (this.props.first === true) { className += " first-initiative"}
     return(
       <div className={className}>
         <h2 className="creature_name">{creature.name}</h2>
